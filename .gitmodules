@@ -1,0 +1,9 @@
+[submodule "libs/imago"]
+	path = libs/imago
+	url = https://github.com/jtsiomb/libimago
+[submodule "libs/cgmath"]
+	path = libs/cgmath
+	url = https://github.com/jtsiomb/gph-cmath
+[submodule "libs/meshfile"]
+	path = libs/meshfile
+	url = https://github.com/jtsiomb/meshfile

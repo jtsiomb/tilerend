@@ -1,7 +1,7 @@
 #ifndef REND_H_
 #define REND_H_
 
-#include "cgmath/cgmath.h"
+#include "cgmath.h"
 
 struct scene;
 

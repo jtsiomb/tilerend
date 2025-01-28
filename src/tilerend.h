@@ -1,7 +1,7 @@
 #ifndef TILEREND_H_
 #define TILEREND_H_
 
-#include "cgmath/cgmath.h"
+#include "cgmath.h"
 #include "rend.h"
 #include "scene.h"
 

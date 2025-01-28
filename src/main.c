@@ -3,7 +3,7 @@
 #include <sys/time.h>
 #include "rend.h"
 #include "scene.h"
-#include "cgmath/cgmath.h"
+#include "cgmath.h"
 #include "imago2.h"
 #include "tilerend.h"
 #include "script.h"
