@@ -98,6 +98,8 @@ static char *clean_line(char *s)
 {
 	char *end;
 
+	if(!s) return 0;
+
 	while(*s && isspace(*s)) ++s;
 	if(!*s) return 0;
 

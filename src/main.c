@@ -25,15 +25,10 @@ int main(int argc, char **argv)
 	struct timeval tv, tv0;
 	FILE *infile = stdin;
 	char buf[512];
+	int noscript = 0;
 
 	if(parse_args(argc, argv) == -1) {
 		return 1;
-	}
-	if(infname) {
-		if(!(infile = fopen(infname, "rb"))) {
-			fprintf(stderr, "failed to open render script: %s\n", infname);
-			return 1;
-		}
 	}
 
 	/* insane defaults */
@@ -47,11 +42,26 @@ int main(int argc, char **argv)
 	init_scene(&vis);
 	rend_init();
 
+	if(infname) {
+		if(load_scene(&scn, infname) == -1) {
+			if(!(infile = fopen(infname, "rb"))) {
+				fprintf(stderr, "failed to open render script: %s\n", infname);
+				return 1;
+			}
+		} else {
+			noscript = 1;
+		}
+	}
+
 	gettimeofday(&tv0, 0);
 
-	while(fgets(buf, sizeof buf, infile)) {
-		if(parse_cmd(buf) == -1) {
-			return 1;
+	if(noscript) {
+		parse_cmd("render");
+	} else {
+		while(fgets(buf, sizeof buf, infile)) {
+			if(parse_cmd(buf) == -1) {
+				return 1;
+			}
 		}
 	}
 

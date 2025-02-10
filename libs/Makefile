@@ -16,8 +16,11 @@ clean-imago:
 	$(MAKE) -C imago clean
 
 .PHONY: meshfile
-meshfile:
+meshfile: meshfile/config.mk
 	$(MAKE) -C meshfile
+
+meshfile/config.mk:
+	cd meshfile && ./configure
 
 .PHONY: clean-meshfile
 clean-meshfile:

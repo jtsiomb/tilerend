@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <limits.h>
 #include <float.h>
 #include <assert.h>
@@ -108,7 +109,6 @@ int load_scene(struct scene *scn, const char *fname)
 	}
 
 	if(!(mf = mf_alloc()) || mf_load(mf, fname) == -1) {
-		fprintf(stderr, "load_scene: failed to load: %s\n", fname);
 		return -1;
 	}
 
