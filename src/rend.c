@@ -325,6 +325,7 @@ static void shade(cgm_vec4 *color, struct scene *scn, struct rayhit *hit, int it
 	struct material *mtl = hit->face->mtl;
 	struct light *lt;
 	struct ray sray;
+	struct rayhit shit;
 	cgm_vec3 basecol;
 	cgm_vec4 texel;
 	float tbn[16];
@@ -386,7 +387,7 @@ static void shade(cgm_vec4 *color, struct scene *scn, struct rayhit *hit, int it
 			}
 			calc_invdir(&sray);
 
-			if(ray_scene(scn, &sray, 0)) {
+			if(ray_scene(scn, &sray, &shit) && shit.t < 1.0f) {
 				continue;
 			}
 		}
